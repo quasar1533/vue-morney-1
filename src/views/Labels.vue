@@ -1,8 +1,5 @@
 <template>
   <LayoutNav>
-    <svg>
-      <use xlink:href="#label"/>
-    </svg>
     <p>Label.vue</p>
   </LayoutNav>
 </template>

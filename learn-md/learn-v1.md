@@ -100,7 +100,7 @@ I* 例子；Money.vue等组件
   可以关掉eslint检测
 ---------------------------------
 
-#### 改进svg的使用，使其组件化，方便引用
+#### 6. 改进svg的使用，使其组件化，方便引用
 * 在Vue组件中import svg有一个小bug，即如果import后不调用它，那么引用的svg就不会被加载到页面的body中
 
   实质上，svg-sprite-loader 将svg文件加载为symbol标签并放入svg标签里，最后我们通过Vue提供的use标签选择svg标签中的symbol标签，然后在页面呈现svg图像。
@@ -115,3 +115,9 @@ I* 例子；Money.vue等组件
   见Nav.vue
 
   封装一个新的组件，专用于加载icon Icon.vue
+
+#### 7. 给nav添加css
+* 对Nav组件进行css加工
+
+#### 8. 
+* 目前的css是静态页面的css需要使其能够实现交互响应
