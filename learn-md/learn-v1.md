@@ -48,7 +48,23 @@ Vue VSCode Snippets
 #### 4. 给底部导航添加样式
 1. fixed定位
 * ！！**手机上尽量不要使用fixed定位**
+* 所以直接略过
 
 2. flex布局
 * 尽量减少复制重复
 * 解决css重复的问题
+
+  创建component/Layout组件来减少重复
+
+  Vue提供了相应的插槽功能--> 文档
+
+
+--------------------------------
+# 必添加css
+```css
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+```

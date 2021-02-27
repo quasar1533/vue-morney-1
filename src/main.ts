@@ -4,11 +4,13 @@ import './registerServiceWorker';
 import router from './router';
 import store from './store';
 import Nav from "@/components/Nav.vue";
+import LayoutNav from "@/components/LayoutNav.vue";
 
 
 Vue.config.productionTip = false;
 
 Vue.component('Nav', Nav);
+Vue.component('LayoutNav', LayoutNav);
 
 new Vue({
   router,
