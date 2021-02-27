@@ -85,8 +85,7 @@ Vue VSCode Snippets
   
   将svg的xml文件转换成一个symbol标签，并将其放入创建的svg标签里，可以配合Vue的use标签进行使用。
   
-  最后将封装好的svg标签放入body
-* 例子；Money.vue等组件
+I* 例子；Money.vue等组件
 
 --------------------------------
 # ts 提示cannot find svg modules
@@ -107,3 +106,12 @@ Vue VSCode Snippets
   实质上，svg-sprite-loader 将svg文件加载为symbol标签并放入svg标签里，最后我们通过Vue提供的use标签选择svg标签中的symbol标签，然后在页面呈现svg图像。
   
 * 使用组件化引用，解决这个问题
+
+  例子，Label.vue
+
+  一些奇技淫巧。
+* 解决引用svg代码重复的问题
+
+  见Nav.vue
+
+  封装一个新的组件，专用于加载icon Icon.vue
