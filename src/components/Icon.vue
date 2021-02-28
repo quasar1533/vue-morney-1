@@ -5,9 +5,9 @@
 </template>
 
 <script lang="ts">
-const importAll = (requireContext: __WebpackModuleApi.requireContext) => requireContext.keys().forEach(requireContext);
+const importAll = (requireContext: __WebpackModuleApi.RequireContext) => requireContext.keys().forEach(requireContext);
 try {
-  importAll(require.context("../assets/icons"), true, /\.svg$/);
+  importAll(require.context("../assets/icons", true, /\.svg$/));
 } catch (err) {
   console.error(err);
 }
@@ -23,7 +23,7 @@ export default {
   width: 1em;
   height: 1em;
   vertical-align: -0.15em;
-  fill: currentColor;
+  fill: #8a8a8a;
   overflow: hidden;
 }
 </style>
