@@ -1,7 +1,7 @@
 <template>
-  <LayoutNav>
+  <Layout>
     <p>Label.vue</p>
-  </LayoutNav>
+  </Layout>
 </template>
 
 <script lang="ts">

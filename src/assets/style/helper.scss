@@ -7,3 +7,11 @@ $font-song: Georgia, "Nimbus Roman No9 L", "Songti SC", "Noto Serif CJK SC", "So
 $color-black: #333333;
 $color-highlight-red: #f00;
 
+// placeholder  scss语法，将要用的选择器，复制到占位上。
+%clearFix {
+  &::after {
+    content: '';
+    display: block;
+    clear: both;
+  }
+}

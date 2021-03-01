@@ -8,3 +8,21 @@ a {
   text-decoration: none;
   color: inherit;
 }
+
+ul, ol {
+  list-style: none;
+}
+
+button, input {
+  font: inherit; // 很重要的reset
+}
+
+:focus {
+  outline: none;
+}
+
+//.clearfix::after {  //专用于配合float使用
+//  content: "";
+//  display: block;
+//  clear: both;
+//}
