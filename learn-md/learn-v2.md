@@ -61,4 +61,13 @@
 
 #### 5. 书写Money.vue组件的js脚本
 * 运用js+ts实现
+* 在Vue组件中使用typescript需要一些基本继承操作
 
+  书写时十分便捷简单。
+
+  数据直接赋值等于即可；methods、hooks直接写成方法；computed方法前面加get即可。
+
+  外部数据props
+
+  引入装饰器  from vue-property-decorator（文档）
+* typescript 好处多多，可以在编译时就进行代码检查，不容易出错
