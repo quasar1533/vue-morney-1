@@ -30,17 +30,36 @@
 // ts代码
 <script lang="ts">
 import Vue from "vue";
-import {Component} from "vue-property-decorator";
+import {Component, Prop} from "vue-property-decorator";
+// import Component from "vue-class-component";
 
-@Component
+// const TypesProps = Vue.extend({
+//   props: {
+//     test: Number
+//   }
+// });
+
+@Component({
+  name: "Types"
+})
 export default class Types extends Vue {
   type = "-";
+
+  @Prop(Number) propA: number | undefined;
+  // @prop 告诉Vue 这是props属性
+  // Number用于告诉Vue变量的运行时类型
+  // test 是自定义属性名
+  // :冒号后面是 ts的静态类型语法，用于编译时检查
 
   selectType(type: string) {
     if (type !== "-" && type !== "+") {
       throw new Error("unknown type");
     }
     this.type = type;
+  }
+
+  mounted() {
+    console.log(this.propA);
   }
 }
 </script>

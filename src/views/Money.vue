@@ -1,7 +1,7 @@
 <template>
   <Layout class-prefix="money">
     <Keypad/>
-    <Types/>
+    <Types :prop-a="111"/>
     <Notes/>
     <Tags/>
   </Layout>

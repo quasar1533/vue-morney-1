@@ -71,3 +71,12 @@
 
   引入装饰器  from vue-property-decorator（文档）
 * typescript 好处多多，可以在编译时就进行代码检查，不容易出错
+
+  **编译时、运行时概念！！**
+
+  ts专注于编译时的代码检查。而Vue本身有运行时代码检测。
+
+* ts具有妥协性，就算编译不通过，依然可以转换为js并执行。
+
+  编译选项 tsconfig.ts
+  * noEmitOnError: true
