@@ -39,13 +39,13 @@ nav {
       width: 32px;
       height: 32px;
     }
-  }
 
-  .item.selected {
-    color: #42b983;
+    &.selected {
+      color: #42b983;
 
-    .icon {
-      fill: currentColor;
+      .icon {
+        fill: currentColor;
+      }
     }
   }
 }

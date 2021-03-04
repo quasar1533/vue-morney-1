@@ -60,6 +60,7 @@
   参考文件component/money
 
 #### 5. 书写Money.vue组件的js脚本
+1. 写Types组件脚本
 * 运用js+ts实现
 * 在Vue组件中使用typescript需要一些基本继承操作
 
@@ -80,3 +81,22 @@
 
   编译选项 tsconfig.ts
   * noEmitOnError: true
+  
+* Vue与typescript的结合不够好，导致在Vue组件中书写typescript经常要强制指定对象类型。*！！*
+
+  **使用as操作符强制断言一个变量的类型！**
+
+  **在变量名后面加!表示排除空的情况**
+
+2. 写keypad组件脚本
+* 注意计算器的逻辑问题。
+* 参考Keypad.vue  
+
+3. 写Notes组件和Tags组件
+* 注意模板语法中class的新赋值方法
+
+--------------------------------
+# 适配chrome浏览器顶部导航栏
+* 是一个坑，需要在#app上使用absolute定位top:0,left:0
+
+  且响应式高度要做好，100%各种。App.vue中，Layout.vue中；子组件中。
