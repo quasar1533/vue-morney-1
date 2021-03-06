@@ -30,13 +30,11 @@
 
 <script lang="ts">
 import Vue from "vue";
-import {Component, Prop, Watch} from "vue-property-decorator";
+import {Component, Watch} from "vue-property-decorator";
 
 @Component
 export default class Keypad extends Vue {
-  @Prop(Number) value!: number;
-
-  output = this.value.toString();
+  output = "0";
   dot = true;  // 是否可以使用'.'
   operator = "";
 
@@ -201,6 +199,8 @@ export default class Keypad extends Vue {
 
   ok() {
     this.$emit("update:value", parseFloat(this.output));
+    this.$emit("submit");
+    this.empty();
   }
 
   @Watch("operator")
