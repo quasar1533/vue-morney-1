@@ -18,7 +18,7 @@
       <button @click="handleInput">7</button>
       <button @click="handleInput">8</button>
       <button @click="handleInput">9</button>
-      <button class="ok">完成</button>
+      <button class="ok" @click="ok">完成</button>
       <button @click="handleInput">.</button>
       <button @click="handleInput">0</button>
       <button class="backspace" @click="backspace">
@@ -30,12 +30,14 @@
 
 <script lang="ts">
 import Vue from "vue";
-import {Component, Watch} from "vue-property-decorator";
+import {Component, Prop, Watch} from "vue-property-decorator";
 
 @Component
 export default class Keypad extends Vue {
-  output = "0";
-  dot = true;  // 是否可使用.
+  @Prop(Number) value!: number;
+
+  output = this.value.toString();
+  dot = true;  // 是否可以使用'.'
   operator = "";
 
   beforeNumber = 0;
@@ -132,11 +134,11 @@ export default class Keypad extends Vue {
     //   this.beforeNumber -= parseFloat(this.output.slice(this.beforeIndex));
     // }
 
-    // 可以避免2位小数的 js浮点计算误差
+    // 第二种方法：可以避免2位小数的 js浮点计算误差
     const currNumber = parseFloat(this.output.slice(this.beforeIndex));
     if (this.operator === "+") {
       this.beforeNumber = (this.beforeNumber * 1000 + currNumber * 1000) / 1000;
-    } else if (this.operator === '-') {
+    } else if (this.operator === "-") {
       this.beforeNumber = (this.beforeNumber * 1000 - currNumber * 1000) / 1000;
     }
   }
@@ -195,6 +197,10 @@ export default class Keypad extends Vue {
     this.preState.dot = true;
     this.preState.beforeNumber = 0;
     this.preState.beforeIndex = 0;
+  }
+
+  ok() {
+    this.$emit("update:value", parseFloat(this.output));
   }
 
   @Watch("operator")

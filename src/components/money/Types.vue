@@ -1,8 +1,8 @@
 <template>
   <div>
     <ul class="types">
-      <li :class="type === '-' && 'selected'" @click="selectType('-')">支出</li>
-      <li :class="type === '+' && 'selected'" @click="selectType('+')">收入</li>
+      <li :class="value === '-' && 'selected'" @click="selectType('-')">支出</li>
+      <li :class="value === '+' && 'selected'" @click="selectType('+')">收入</li>
     </ul>
   </div>
 </template>
@@ -43,9 +43,7 @@ import {Component, Prop} from "vue-property-decorator";
   name: "Types"
 })
 export default class Types extends Vue {
-  type = "-";
-
-  @Prop(Number) propA: number | undefined;
+  @Prop(String) readonly value!: string;
   // @prop 告诉Vue 这是props属性
   // Number用于告诉Vue变量的运行时类型
   // test 是自定义属性名
@@ -55,11 +53,7 @@ export default class Types extends Vue {
     if (type !== "-" && type !== "+") {
       throw new Error("unknown type");
     }
-    this.type = type;
-  }
-
-  mounted() {
-    console.log(this.propA);
+    this.$emit("update:value", type);
   }
 }
 </script>

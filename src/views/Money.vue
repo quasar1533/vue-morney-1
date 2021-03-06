@@ -1,27 +1,44 @@
 <template>
   <Layout class-prefix="money">
-    <Keypad/>
-    <Types :prop-a="111"/>
-    <Notes/>
-    <Tags :data-source.sync="tags" />
+    <Keypad :value.sync="record.amount"/>
+    <Types :value.sync="record.type"/>
+    <Notes @update:value="onUpdateNotes"/>
+    <Tags :data-source.sync="tags" @update:selectedTags="onUpdateSelectedTags"/>
   </Layout>
 </template>
 
 <script lang="ts">
+import Vue from "vue";
 import Keypad from "@/components/money/Keypad.vue";
 import Types from "@/components/money/Types.vue";
 import Notes from "@/components/money/Notes.vue";
 import Tags from "@/components/money/Tags.vue";
+import {Component} from "vue-property-decorator";
 
-export default {
-  name: "Money",
+type Record = {
+  tags: string[];
+  type: string;
+  notes: string;
+  amount: number;
+}
+
+@Component({
   components: {Tags, Notes, Types, Keypad},
-  data() {
-    return {
-      tags: ["衣", "食", "住", "行"]
-    };
+})
+export default class Money extends Vue {
+  tags = ["衣", "食", "住", "行"];
+  record: Record = {
+    tags: [], type: "-", notes: "", amount: 0
+  };
+
+  onUpdateSelectedTags(value: string[]) {
+    this.record.tags = value;
   }
-};
+
+  onUpdateNotes(value: string) {
+    this.record.notes = value;
+  }
+}
 </script>
 
 <style lang="scss">

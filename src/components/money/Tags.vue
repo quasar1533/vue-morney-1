@@ -7,7 +7,7 @@
       <li v-for="tag in dataSource" :key="tag"
           @click="toggle(tag)"
           :class="{
-            selected: selectedString.includes(tag)
+            selected: selectedTags.includes(tag)
           }">{{ tag }}
       </li>
     </ul>
@@ -21,21 +21,24 @@ import {Component, Prop} from "vue-property-decorator";
 @Component
 export default class Tags extends Vue {
   @Prop(Array) dataSource: string[] | undefined;
-  selectedString: string[] = [];
+  selectedTags: string[] = [];
 
   toggle(tag: string) {
-    const index = this.selectedString.indexOf(tag);
+    const index = this.selectedTags.indexOf(tag);
     if (index >= 0) {
-      this.selectedString.splice(index, 1);
+      this.selectedTags.splice(index, 1);
     } else {
-      this.selectedString.push(tag);
+      this.selectedTags.push(tag);
     }
+    this.$emit("update:selectedTags", this.selectedTags);
   }
 
   newTag() {
     const name = window.prompt("请输入标签名（最多四个字）：");
     if (name === "") {
       window.alert("标签名不能为空");
+    } else if (name === null) {
+      return;
     } else {
       if (this.dataSource) {
         this.$emit("update:dataSource", [...this.dataSource, name]);
