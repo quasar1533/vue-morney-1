@@ -15,6 +15,21 @@ import Notes from "@/components/money/Notes.vue";
 import Tags from "@/components/money/Tags.vue";
 import {Component, Watch} from "vue-property-decorator";
 
+// 模拟一下数据的迁移，数据库的升级
+window.localStorage.setItem("version", "0.0.1");
+const version = window.localStorage.getItem("version") || "0.0.1";
+const recordList: Record[] = JSON.parse(window.localStorage.getItem("recordList") || "[]");
+
+if (version === "0.0.1") {
+  recordList.forEach(record => {
+    record.createdAt = new Date(2021, 0, 1);
+  });
+} else if (version === '0.0.2') {
+  // doing something
+}
+
+// --------------------------分割线
+
 type Record = {
   tags: string[];
   type: string;
