@@ -1,32 +1,37 @@
-import Vue from 'vue';
-import VueRouter, {RouteConfig} from 'vue-router';
+import Vue from "vue";
+import VueRouter, {RouteConfig} from "vue-router";
 import Money from "@/views/Money.vue";
 import Statistics from "@/views/Statistics.vue";
 import Labels from "@/views/Labels.vue";
 import NotFound from "@/views/NotFound.vue";
+import EditLabel from "@/views/EditLabel.vue";
 
 Vue.use(VueRouter);
 
 const routes: Array<RouteConfig> = [
   {
-    path: '/',
+    path: "/",
     component: Money
   },
   // path后面是 URL #后面的hash值
   {
-    path: '/money',
+    path: "/money",
     component: Money
   },
   {
-    path: '/labels',
+    path: "/labels",
     component: Labels
   },
   {
-    path: '/statistics',
+    path: "/labels/edit",
+    component: EditLabel
+  },
+  {
+    path: "/statistics",
     component: Statistics
   },
   {
-    path: '*',
+    path: "*",
     component: NotFound
   }
 ];

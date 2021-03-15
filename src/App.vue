@@ -15,6 +15,8 @@
   color: $color-black;
   font-size: 16px;
   line-height: 1.5;
+
+  background: #f5f5f5;
   position: absolute;
   top: 0;
   left: 0;
